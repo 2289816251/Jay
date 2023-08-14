@@ -1,0 +1,21 @@
+/* 滚动条 */
+.myScrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #333;
+  }
+  &::-webkit-scrollbar-corner {
+    background: var(--color-background);
+  }
+}

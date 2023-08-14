@@ -1,0 +1,22 @@
+.enterTurnOver .z {
+  animation: enterTurnOverZ 3s forwards;
+}
+@keyframes enterTurnOverZ {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+.enterTurnOver .b {
+  animation: enterTurnOverB 3s forwards;
+}
+@keyframes enterTurnOverB {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

@@ -1,6 +1,6 @@
 /* 浅色 light */
 :root {
-  --light-background-color: #0B0849;
+  --light-background-color: #0b0849;
 }
 
 /* 深色 dark */
@@ -8,9 +8,11 @@
   /* 背景颜色 */
   --dark-background-color: #040423;
   /* 标题颜色 */
-  --dark-title-color: #C8C8F4;
+  --dark-title-color: #c8c8f4;
   /* 文字颜色 */
   --dark-text-color: #fff;
+  // 图标
+  --dark-icon-color: #fff;
 }
 
 /* 默认为深色主题 */
@@ -26,11 +28,13 @@
   /* 鼠标悬浮边框颜色 */
   --color-border-hover: var(--dark-background-color);
   /* 标题颜色 */
-  --color-heading: var(--dark-title-color);
+  --color-title: var(--dark-title-color);
   /* 文字颜色 */
   --color-text: var(--dark-text-color);
   /* 截面间隙 */
   --section-gap: 160px;
+  // 图标
+  --color-icon: var(--dark-icon-color);
 }
 
 /* 切换主题响应式 light 浅色 */
@@ -47,14 +51,17 @@
     /* 边框颜色悬停 */
     --color-border-hover: var(--dark-background-color);
     /* 标题颜色 */
-    --color-heading: var(--dark-text-color);
+    --color-title: var(--dark-text-color);
     /* 文字颜色 */
     --color-text: var(--dark-text-color);
+    // 图标
+    --color-icon: var(--dark-icon-color);
   }
 }
 
 // 布局
-:root{
+:root {
   --grid: 3.2rem;
-  --margin: 1.6rem; 
+  --margin: 1.6rem;
+  --border-radius: 0.8rem;
 }

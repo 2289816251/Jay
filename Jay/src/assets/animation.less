@@ -1,0 +1,46 @@
+// 卡片翻转动画 进入动画
+.enterTurnOver .z{
+    animation: enterTurnOverZ 3s forwards;
+}
+@keyframes enterTurnOverZ {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+.enterTurnOver .b{
+    animation: enterTurnOverB 3s forwards;
+}
+@keyframes enterTurnOverB {
+    0%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
+// 卡片翻转动画 出场动画
+// .outTurnOver .z{
+//     animation: outTurnOverZ 3s forwards;
+// }
+// @keyframes outTurnOverZ {
+//     0%{
+//         transform: rotateY(180deg);
+//     }
+//     100%{
+//         transform: rotateY(0deg);
+//     }
+// }
+// .outTurnOver .b{
+//     animation: outTurnOverB 3s forwards;
+// }
+// @keyframes outTurnOverB {
+//     0%{
+//         transform: rotateY(0deg);
+//     }
+//     100%{
+//         transform: rotateY(180deg);
+//     }
+// }
