@@ -1,8 +1,10 @@
 // 引入axios
 import axios from 'axios'
 
+import { baseURL } from './url'
+
 let requests = axios.create({
-    baseURL:'http://127.0.0.1:8000',
+    baseURL:baseURL,
     // baseURL:'http://114.115.252.184:8000',
     timeout:5000,
     // 设置请求头

@@ -14,22 +14,32 @@
         <div class="swiper">
           <TheAlbumSwiper :theAlbumData="theAlbumData" />
         </div>
-        <div class="title" v-if="guidePages.musicInfo[guidePages.theAlbumIndex].title">
+        <div class="title" v-if="guidePages.musicInfo !== []">
           {{ guidePages.musicInfo[guidePages.theAlbumIndex].title }}
         </div>
-        <div class="describe myScrollbar">
-          {{ describe }}
+        <div class="describe myScrollbar" v-if="guidePages.musicInfo !== []">
+          {{ describe ? describe : '这是一段描述' }}
         </div>
       </div>
       <div class="switch">
         <span> The </span>
         <span> Strongest </span>
-        <span> Surface </span>
-      </div>
-    </div>
-  </div>
+        <span> Surface </span>         
+      </div>                                                                     
+    </div>        
+  </div>             
 </template>
-
+<script>
+import { useGuidePages } from '@/stores/guidePages'
+export default{
+  name:'GuidePages',
+  beforeRouteEnter (to,from,next){
+    const guidePages = useGuidePages()
+    guidePages.init()
+    next()
+  }
+}
+</script>
 <script setup>
 // 引入图标
 import IconMail from '@/components/icons/IconMail.vue'
@@ -42,9 +52,9 @@ import TheAlbumSwiper from '@/components/TheAlbumSwiper.vue'
 // guidePages 仓库
 import { useGuidePages } from '@/stores/guidePages'
 const guidePages = useGuidePages()
-
+guidePages.getTheAlbumData()
 // 引入自定义事件
-import mitt from '@/mitt/mybus'
+// import mitt from '@/mitt/mybus'
 
 // 引入hooks
 import { changeDescribe } from '@/hooks/useDescribe'
@@ -55,25 +65,15 @@ import { computed, reactive } from 'vue'
 const data = reactive({
   size: '32px', // 图标大小
 })
-
-// // 自定义事件 改变索引值
-// mitt.on('changeIndex', (e) => {
-//   const { realIndex } = e
-//   data.theAlbumIndex = realIndex
-// })
-
-// mitt.on('theAlbumClickBus', ({e,id}) => {
-//   if(data.theAlbumIndex == id){
-//     console.log('翻转卡片')
-//   }
-// })
-
 // 专辑数据 - 计算属性
 const theAlbumData = computed(()=>{
   return guidePages.musicInfo
 })
 // 描述 - 计算属性
 const describe = computed(() => {
+  if(guidePages.musicInfo[guidePages.theAlbumIndex].describe.length <= 0){
+    return '这是一段描述'
+  }
   return changeDescribe(guidePages.musicInfo[guidePages.theAlbumIndex].describe)
 })
 

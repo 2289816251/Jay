@@ -3,9 +3,14 @@ const express = require('express')
 
 const router = express.Router()
 
-const guideHander = require('../router_hander/guide')
+// 引入专辑数据
+const theAlbum = require('../JSON/theAlbum.json')
 
-// 获取通过关键字获取文章数据
-// router.get('/getAboutMe',aboutMeHander.getAboutMe)
-
+// 获取专辑数据
+router.get('/getTheAlbumData',(req,res)=>{
+    res.send({
+        code:200,
+        data:theAlbum
+    })
+})
 module.exports = router

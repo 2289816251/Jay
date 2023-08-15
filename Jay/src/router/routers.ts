@@ -2,7 +2,7 @@ export default [
     {
       path: '/',
       name: 'guide',
-      component: () => import('../views/GuidePages.vue')
+      component: () => import('@/views/GuidePages.vue')
     },
     {
       path: '/about',
